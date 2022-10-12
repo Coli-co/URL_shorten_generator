@@ -1,7 +1,7 @@
 {{#if shortURL}}
 <div class="transurl">
   <h3>Success! Please use this link:</h3>
-  <p id="shortenurl">{{originalUrl}}/{{shortURL}}</p>
+  <a href={{nonShortUrl}} id="shortenurl" >{{originalUrl}}/{{shortURL}}</a>
   <button class="copy" onclick="copy()">Copy</button>
   <a class="backhome" href="/">Back and try next url shorten</a>
 </div>

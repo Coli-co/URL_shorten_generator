@@ -103,3 +103,10 @@ button.copy {
 .errorurl {
   color: gray
 }
+
+#shortenurl {
+  color: rgba(12, 76, 252, 0.934);
+  font-weight: bolder;
+  text-align: center;
+  margin-bottom: 5px;
+}

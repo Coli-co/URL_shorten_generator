@@ -36,7 +36,8 @@ app.post('/', (req, res) => {
         // 若 db 已經有，則產生一樣的縮址
         res.render('index', {
           originalUrl: req.headers.origin,
-          shortURL: url.shortenUrl
+          shortURL: url.shortenUrl,
+          nonShortUrl: req.body.url
         })
       }
     })
