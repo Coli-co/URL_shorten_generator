@@ -31,7 +31,6 @@ app.post('/', (req, res) => {
         GenerateURL.create({ originalUrl: req.body.url, shortenUrl: shortURL })
       } else {
         // 若 db 已經有，則產生一樣的縮址
-        console.log(req.headers)
         res.render('index', {
           originalUrl: req.headers.origin,
           shortURL: url.shortenUrl
@@ -43,7 +42,7 @@ app.post('/', (req, res) => {
 
 app.get('/:shortURL', (req, res) => {
   const { shortURL } = req.params
-  // 尋找 db 是否已含有縮址
+  // 尋找 db 是否已含有縮址，若沒有顯示錯誤提示
   GenerateURL.findOne({ shortenUrl: shortURL })
     .then((data) => {
       if (!data) {
