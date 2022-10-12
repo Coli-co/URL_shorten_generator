@@ -4,14 +4,17 @@
   <p id="shortenurl">{{originalUrl}}/{{shortURL}}</p>
 </div>
 <button class="copy" onclick="copy()">Copy</button>
+
+
+
 <script>
   function copy() {
     let copyText = document.querySelector('#shortenurl').textContent
-    console.log('copyText is:', copyText)
     navigator.clipboard.writeText(copyText)
     alert('Copied the url: ' + '\n' + copyText)
   }
 </script>
+
 {{else}}
 <form action="/" method="POST" >
   <input type="text" name="url" placeholder="Please enter your URL here." required>
