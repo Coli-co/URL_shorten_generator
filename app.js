@@ -29,17 +29,25 @@ app.post('/', (req, res) => {
 
   GenerateURL.findOne({ originalUrl: req.body.url })
     .then((url) => {
-      // 沒有輸入過的網址資料，就在 db 裡創建一個網址和其縮址資料
+      // 沒有輸入過的網址資料，就在 db 裡創建一個網址和其縮址資料，並把該值往下傳遞
       if (!url) {
-        GenerateURL.create({ originalUrl: req.body.url, shortenUrl: shortURL })
-      } else {
-        // 若 db 已經有，則產生一樣的縮址
-        res.render('index', {
-          originalUrl: req.headers.origin,
-          shortURL: url.shortenUrl,
-          nonShortUrl: req.body.url
+        const result = GenerateURL.create({
+          originalUrl: req.body.url,
+          shortenUrl: shortURL
         })
+        return result
+      } else if (url) {
+        // 當db裡有過同樣的網址資料，把該資料往下傳遞
+        return url
       }
+    })
+    .then((url) => {
+      // 同樣的網址，產生同樣的縮址
+      res.render('index', {
+        originalUrl: req.headers.origin,
+        shortURL: url.shortenUrl,
+        nonShortUrl: req.body.url
+      })
     })
     .catch((err) => console.log(err))
 })
@@ -49,6 +57,7 @@ app.get('/:shortURL', (req, res) => {
   const { shortURL } = req.params
   // 尋找 db 是否已含有縮址，若沒有顯示錯誤提示
   GenerateURL.findOne({ shortenUrl: shortURL })
+    .lean()
     .then((data) => {
       if (!data) {
         const errorMessage = 'Invalid URL:'

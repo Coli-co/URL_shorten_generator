@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 require('dotenv').config()
 
-const url = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@cluster0.u3yqkby.mongodb.net/${process.env.MONGODB_DBNAME}?retryWrites=true&w=majority`
+const url = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@cluster0.u3yqkby.mongodb.net/${process.env.MONGO_DBNAME}?retryWrites=true&w=majority`
 
 mongoose.connect(url, {
   useNewUrlParser: true,
