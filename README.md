@@ -1,4 +1,4 @@
-#URL Shortener
+# URL Shortener
 
 ### Screenshot
 
@@ -17,13 +17,17 @@ The longer URL can be shorten through this generator.
 
 1. Make sure Node.js and npm installed
 2. Store this project to local
+
 ```
 git clone https://github.com/Coli-co/URL_shorten_generator.git
 ```
+
 3. Switch to project folder
+
 ```
 cd URL_shorten_generator
 ```
+
 4. Install package required
 
 ```
