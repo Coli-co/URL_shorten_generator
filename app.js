@@ -12,10 +12,12 @@ app.set('view engine', 'handlebars')
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
+// 首頁
 app.get('/', (req, res) => {
   res.render('index')
 })
 
+// 提交網址
 app.post('/', (req, res) => {
   //  沒輸入按下送出鈕，只會停留在首頁
   if (!req.body.url) {
@@ -40,6 +42,7 @@ app.post('/', (req, res) => {
     .catch((err) => console.log(err))
 })
 
+// 將縮址導向原本網站
 app.get('/:shortURL', (req, res) => {
   const { shortURL } = req.params
   // 尋找 db 是否已含有縮址，若沒有顯示錯誤提示
