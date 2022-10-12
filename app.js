@@ -11,6 +11,7 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.static('public'))
 
 // 首頁
 app.get('/', (req, res) => {

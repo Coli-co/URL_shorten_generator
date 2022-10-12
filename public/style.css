@@ -1,0 +1,105 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#shortbtn {
+  margin-left: 103px;
+  font-weight: bold;
+  border: 1px solid rgba(12, 76, 252, 0.934);
+  color: rgba(12, 76, 252, 0.934)
+}
+
+h2 {
+  color: rgba(15, 1, 1, 0.795);
+  font-weight: bold
+}
+
+h3 {
+  color: rgba(10, 194, 65, 0.893);
+  margin-top: 0px;
+}
+
+h4 {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 10px;
+}
+
+
+input {
+  width: 100%;
+  margin: 1rem 0;
+  padding: 0.5rem;
+  border: none;
+  background-color: #f5f5f5;
+}
+
+button.shorten {
+  width: 50%;
+  background-color: white;
+  border: 1px solid rgb(109, 109, 255);
+  color: rgb(109, 109, 255);
+  padding: 0.5rem;
+}
+
+
+
+a {
+  text-decoration: none;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.457);
+  font-weight: bold;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+p {
+  color: rgba(12, 76, 252, 0.934);
+  font-weight: bolder;
+  text-align: center;
+  margin-top: 2px;
+}
+
+button.copy {
+  width: 30%;
+  background-color: white;
+  border: 1px solid rgba(45, 172, 83, 0.662);
+  color: rgba(10, 194, 65, 0.893);
+  padding: 0.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+
+}
+
+.transurl {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.errormsg {
+  color: red
+}
+
+.errorurl {
+  color: gray
+}
