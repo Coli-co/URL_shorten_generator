@@ -19,17 +19,15 @@ router.post('/', (req, res) => {
 
   GenerateURL.findOne({ originalUrl: req.body.url })
     .then((url) => {
-      // 沒有輸入過的網址資料，就在 db 裡創建一個網址和其縮址資料，並把該值往下傳遞
-      if (!url) {
-        const result = GenerateURL.create({
-          originalUrl: req.body.url,
-          shortenUrl: shortURL
-        })
-        return result
-      } else if (url) {
-        // 當db裡有過同樣的網址資料，把該資料往下傳遞
+      // 當db裡有過同樣的網址資料，把該資料往下傳遞
+      if (url) {
         return url
       }
+      // 沒有輸入過的網址資料，就在 db 裡創建一個網址和其縮址資料，並把該值往下傳遞
+      return GenerateURL.create({
+        originalUrl: req.body.url,
+        shortenUrl: shortURL
+      })
     })
     .then((url) => {
       // 同樣的網址，產生同樣的縮址
