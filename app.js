@@ -62,7 +62,7 @@ app.get('/:shortURL', (req, res) => {
       if (!data) {
         const errorMessage = 'Invalid URL:'
         const errorURL = req.headers.host + '/' + shortURL
-        res.render('error', { errorMessage, errorURL })
+        return res.render('error', { errorMessage, errorURL })
       }
       // 轉址到原本 url
       res.redirect(data.originalUrl)
